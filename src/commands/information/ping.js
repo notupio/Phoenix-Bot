@@ -1,6 +1,8 @@
+const { EmbedBuilder } = require('discord.js')
+
 /**
  * @type {import("@structures/Command")}
- */
+**/
 module.exports = {
   name: "ping",
   description: "shows the current ping from the bot to the discord servers",
@@ -10,15 +12,25 @@ module.exports = {
   },
   slashCommand: {
     enabled: true,
-    ephemeral: true,
+    ephemeral: false,
     options: [],
   },
 
   async messageRun(message, args) {
-    await message.safeReply(`🏓 Pong : \`${Math.floor(message.client.ws.ping)}ms\``);
+    const embed = await genReaction(Math.floor(message.client.ws.ping), message.author);
+    await message.safeReply({ embeds: [embed] });
   },
 
   async interactionRun(interaction) {
-    await interaction.followUp(`🏓 Pong : \`${Math.floor(interaction.client.ws.ping)}ms\``);
+    const embed = await genReaction(Math.floor(message.client.ws.ping), message.author);
+    await interaction.followUp({ embeds: [embed] });
   },
+};
+
+const getEmbed = async (ping, user) => {
+  return new EmbedBuilder()
+    .setTitle(":ping_pong: Pong :ping_pong:")
+    .setDescription(`**Bot's Latency:** ${ping}ms \n **Database Latency:** 1ms`)
+    .setColor("Random")
+    .setFooter({ text: `Requested By ${user.tag}` });
 };
