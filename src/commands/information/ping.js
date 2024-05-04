@@ -17,12 +17,12 @@ module.exports = {
   },
 
   async messageRun(message, args) {
-    const embed = await genReaction(Math.floor(message.client.ws.ping), message.author);
+    const embed = await getEmbed(Math.floor(message.client.ws.ping), message.author);
     await message.safeReply({ embeds: [embed] });
   },
 
   async interactionRun(interaction) {
-    const embed = await genReaction(Math.floor(message.client.ws.ping), message.author);
+    const embed = await getEmbed(Math.floor(message.client.ws.ping), message.author);
     await interaction.followUp({ embeds: [embed] });
   },
 };
