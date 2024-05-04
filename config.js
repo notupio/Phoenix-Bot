@@ -59,10 +59,10 @@ module.exports = {
     // Refer to https://github.com/freyacodes/Lavalink to host your own lavalink server
     LAVALINK_NODES: [
       {
-        host: "lavalink.lexnet.cc",
-        port: 2333,
-        password: "lexn3tl@val!nk",
-        id: "Local Node",
+        host: "lavalink.neonnetworks.cc",
+        port: 9990,
+        password: "youshallnotpass",
+        id: "NeonNetworks Global",
         secure: false,
       },
     ],
@@ -105,8 +105,8 @@ module.exports = {
   PRESENCE: {
     ENABLED: true, // Whether or not the bot should update its status
     STATUS: "online", // The bot's status [online, idle, dnd, invisible]
-    TYPE: "WATCHING", // Status type for the bot [PLAYING | LISTENING | WATCHING | COMPETING]
-    MESSAGE: "{members} members in {servers} servers", // Your bot status message
+    TYPE: "LISTENING", // Status type for the bot [PLAYING | LISTENING | WATCHING | COMPETING]
+    MESSAGE: "/help | Shadow™", // Your bot status message
   },
 
   STATS: {
