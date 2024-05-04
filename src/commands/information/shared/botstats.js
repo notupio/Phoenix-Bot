@@ -29,44 +29,31 @@ module.exports = (client) => {
   const overallUsage = `${Math.floor(((os.totalmem() - os.freemem()) / os.totalmem()) * 100)}%`;
 
   let desc = "";
-  desc += `❒ Total guilds: ${guilds}\n`;
-  desc += `❒ Total users: ${users}\n`;
-  desc += `❒ Total channels: ${channels}\n`;
-  desc += `❒ Websocket Ping: ${client.ws.ping} ms\n`;
+  desc += `<a:dev:1235934353754685491> **Developed by:** <@1085081038952337508>`;
+  desc += ``;
+  desc += ``;
+  desc += ``;
   desc += "\n";
 
   const embed = new EmbedBuilder()
-    .setTitle("Bot Information")
+    .setTitle("<a:shadow_on_top:1235849461771538513> | Shadow™")
     .setColor(EMBED_COLORS.BOT_EMBED)
     .setThumbnail(client.user.displayAvatarURL())
     .setDescription(desc)
     .addFields(
       {
-        name: "CPU",
+        name: "<a:info:1235933806255411320> **Environment Info**",
         value: stripIndent`
-        ❯ **OS:** ${platform} [${architecture}]
-        ❯ **Cores:** ${cores}
-        ❯ **Usage:** ${cpuUsage}
+        <:operating_system:1235849745189310576> **OS:** Arch Linux [x64]
+        <:cpu:1235849122683031594> **CPU:** Intel® Core™ i9-13900KS CPU@ 5.80GHz 24 vCores
+        <:ram:1235849171274039336> **RAMs:** 62.46 GB  
         `,
-        inline: true,
+        inline: false
       },
       {
-        name: "Bot's RAM",
-        value: stripIndent`
-        ❯ **Used:** ${botUsed}
-        ❯ **Available:** ${botAvailable}
-        ❯ **Usage:** ${botUsage}
-        `,
-        inline: true,
-      },
-      {
-        name: "Overall RAM",
-        value: stripIndent`
-        ❯ **Used:** ${overallUsed}
-        ❯ **Available:** ${overallAvailable}
-        ❯ **Usage:** ${overallUsage}
-        `,
-        inline: true,
+        name: "<a:info:1235933806255411320> **Database Info**",
+        value: "<:database:1235849608010137660> **Total Database(s):** 1",
+        inline: false
       },
       {
         name: "Node Js version",
@@ -74,8 +61,13 @@ module.exports = (client) => {
         inline: false,
       },
       {
-        name: "Uptime",
-        value: "```" + timeformat(process.uptime()) + "```",
+        name: "<a:info:1235933806255411320> **Runtime Info**",
+        value: "<:C_JavaScript:1235938453275938876> Node.js: v18.20.12",
+        inline: false
+      },
+      {
+        name: "<a:uptime:1235939488702791752> Uptime",
+        value: "`" + timeformat(process.uptime()) + "`",
         inline: false,
       }
     );
