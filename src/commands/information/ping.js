@@ -22,7 +22,7 @@ module.exports = {
   },
 
   async interactionRun(interaction) {
-    const embed = await getEmbed(Math.floor(interaction.client.ws.ping), message.author);
+    const embed = await getEmbed(Math.floor(interaction.client.ws.ping), interaction.author);
     await interaction.followUp({ embeds: [embed] });
   },
 };
