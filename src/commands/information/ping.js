@@ -1,8 +1,8 @@
-const { EmbedBuilder } = require('discord.js')
+const { EmbedBuilder } = require("discord.js");
 
 /**
  * @type {import("@structures/Command")}
-**/
+ **/
 module.exports = {
   name: "ping",
   description: "shows the current ping from the bot to the discord servers",
@@ -17,20 +17,21 @@ module.exports = {
   },
 
   async messageRun(message, args) {
-    const embed = await getEmbed(Math.floor(message.client.ws.ping), message.author);
+    const embed = await getEmbed(Math.floor(message.client.ws.ping), message.author.username);
     await message.safeReply({ embeds: [embed] });
   },
 
   async interactionRun(interaction) {
-    const embed = await getEmbed(Math.floor(interaction.client.ws.ping), interaction.author);
+    const embed = await getEmbed(Math.floor(interaction.client.ws.ping), interaction.user.username);
+    // await interaction.deferReply()
     await interaction.followUp({ embeds: [embed] });
   },
 };
 
 const getEmbed = async (ping, user) => {
   return new EmbedBuilder()
-    .setTitle(":ping_pong: Pong :ping_pong:")
-    .setDescription(`**Bot's Latency:** ${ping}ms \n **Database Latency:** 1ms`)
+    .setTitle(":ping_pong:   Pong   :ping_pong:")
+    .setDescription(`**Bot's Latency:**   ${ping}ms \n **Database Latency:**   1ms`)
     .setColor("Random")
-    .setFooter({ text: `Requested By ${user.tag}` });
+    .setFooter({ text: `Requested By ${user}` });
 };

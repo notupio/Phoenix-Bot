@@ -48,12 +48,12 @@ module.exports = (client) => {
         <:cpu:1235849122683031594> **CPU:** Intel® Core™ i9-13900KS CPU@ 5.80GHz 24 vCores
         <:ram:1235849171274039336> **RAMs:** 62.46 GB  
         `,
-        inline: false
+        inline: false,
       },
       {
         name: "<a:info:1235933806255411320> **Database Info**",
         value: "<:database:1235849608010137660> **Total Database(s):** 1",
-        inline: false
+        inline: false,
       },
       {
         name: "Node Js version",
@@ -63,7 +63,7 @@ module.exports = (client) => {
       {
         name: "<a:info:1235933806255411320> **Runtime Info**",
         value: "<:C_JavaScript:1235938453275938876> Node.js: v18.20.12",
-        inline: false
+        inline: false,
       },
       {
         name: "<a:uptime:1235939488702791752> Uptime",
