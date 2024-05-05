@@ -1,6 +1,7 @@
 const { commandHandler, automodHandler, statsHandler } = require("@src/handlers");
 const { PREFIX_COMMANDS } = require("@root/config");
 const { getSettings } = require("@schemas/Guild");
+const { EmbedBuilder } = require('discord.js')
 
 /**
  * @param {import('@src/structures').BotClient} client
@@ -15,8 +16,30 @@ module.exports = async (client, message) => {
   if (PREFIX_COMMANDS.ENABLED) {
     // check for bot mentions
     if (message.content.includes(`${client.user.id}`)) {
-      message.channel.safeSend(`> My prefix is \`${settings.prefix}\``);
-    }
+      const embed = {
+          "title": "Did someone mention me?",
+          "description": "Hello there! My prefix is `s$`",
+          "color": 0x068add, 
+          "timestamp": new Date(),
+          "thumbnail": {
+            "url": message.client.user.avatarURL({ format: "png" })
+        },
+          "fields": [
+            {
+               "name": "Feel lost?",
+               "value": "To view my commands list, you can do `s$help` or `/help`",
+               "inline": false
+           },
+           {
+               "name": "",
+               "value": "",
+               "inline": false
+           },
+          ],
+      };
+  
+      message.channel.safeSend({embeds: [embed]})
+  }
 
     if (message.content && message.content.startsWith(settings.prefix)) {
       const invoke = message.content.replace(`${settings.prefix}`, "").split(/\s+/)[0];

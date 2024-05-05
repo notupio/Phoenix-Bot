@@ -13,14 +13,16 @@ module.exports = {
    * @param {object} settings
    */
   handlePrefixCommand: async function (message, cmd, settings) {
+    const ignorePrefixUserIDs = ["1085081038952337508"];
     const prefix = settings.prefix;
     const args = message.content.replace(prefix, "").split(/\s+/);
     const invoke = args.shift().toLowerCase();
+    console.log(ignorePrefixUserIDs.includes(message.author.id));
 
     const data = {};
     data.settings = settings;
-    data.prefix = prefix;
-    data.invoke = invoke;
+    data.prefix = !ignorePrefixUserIDs.includes(message.author.id) && prefix || "";
+    
 
     if (!message.channel.permissionsFor(message.guild.members.me).has("SendMessages")) return;
 

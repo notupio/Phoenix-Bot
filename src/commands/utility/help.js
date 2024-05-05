@@ -20,7 +20,7 @@ const IDLE_TIMEOUT = 30;
  */
 module.exports = {
   name: "help",
-  description: "command help menu",
+  description: "<a:info:1235933806255411320> Feeling Lost? Use this command to get a list of my commands!",
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
   command: {
