@@ -10,6 +10,6 @@ module.exports = {
         enabled: true,
     },
     async interactionRun(interaction) {
-        await interaction.followUp("success")
+        await interaction.followUp("Success: 👾 click here to claim your badge → [meow :3](<https://discord.com/developers/active-developer>)")
     }
 }
