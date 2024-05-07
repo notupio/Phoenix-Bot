@@ -20,7 +20,7 @@ const IDLE_TIMEOUT = 30;
  */
 module.exports = {
   name: "help",
-  description: "<a:info:1235933806255411320> Feeling Lost? Use this command to get a list of my commands!",
+  description: "Feeling Lost? Use this command to get a list of my commands!",
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
   command: {
@@ -117,7 +117,7 @@ async function getHelpMenu({ client, guild }) {
   const embed = new EmbedBuilder()
     .setColor(EMBED_COLORS.BOT_EMBED)
     .setThumbnail(
-      "https://media.discordapp.net/attachments/1090643206217150546/1090643298567344198/help.gif?ex=66359cf9&is=66344b79&hm=968e63ab75a2cedbee621777b94d31cf72e456e94ed2fae1eddf49713bf0d3ec&="
+      client.user.displayAvatarURL()
     )
     .setDescription(
       "<:QuestionMark:1235849005578321990> | **About Me:**\n" +

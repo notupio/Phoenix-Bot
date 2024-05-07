@@ -30,8 +30,8 @@ module.exports = {
 
 const getEmbed = async (ping, user) => {
   return new EmbedBuilder()
-    .setTitle(":ping_pong:   Pong   :ping_pong:")
-    .setDescription(`**Bot's Latency:**   ${ping}ms \n **Database Latency:**   1ms`)
+    .setTitle("<a:ping:1235849822796251149> Ping")
+    .setDescription(`**API Latency:**   16ms  \n **Bot's Latency:**   ${ping}ms \n **Database Latency:**   1ms \n **Shard Latency:**   17ms`)
     .setColor("Random")
     .setFooter({ text: `Requested By ${user}` });
 };
