@@ -39,7 +39,7 @@ module.exports = {
     enabled: true, // enable or disable dashboard
     baseURL: "http://127.0.0.1", // base url
     failureURL: "http://127.0.0.1", // failure redirect url
-    port: "433", // port to run the bot on
+    port: "80", // port to run the bot on
   },
 
   ECONOMY: {
