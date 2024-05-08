@@ -119,6 +119,7 @@ async function getHelpMenu({ client, guild }) {
     .setThumbnail(
       client.user.displayAvatarURL()
     )
+    .setImage("https://media.discordapp.net/attachments/1120575796097077371/1220684518621450280/standard_1.gif?ex=663ca90c&is=663b578c&hm=764345b855ce260307393c27997896ab29a4f8eaeec9c19335b302e4d37f4449&=&width=421&height=53")
     .setDescription(
       "<:QuestionMark:1235849005578321990> | **About Me:**\n" +
         `Hello I am ${guild.members.me.displayName}!\n` +
