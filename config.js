@@ -37,9 +37,9 @@ module.exports = {
 
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
-    baseURL: "http://127.0.0.1", // base url
-    failureURL: "http://127.0.0.1", // failure redirect url
-    port: "80", // port to run the bot on
+    baseURL: "https://shadow-bot-sigma.vercel.app/", // base url
+    failureURL: "https://shadow-bot-sigma.vercel.app/", // failure redirect url
+    port: "443", // port to run the bot on
   },
 
   ECONOMY: {
