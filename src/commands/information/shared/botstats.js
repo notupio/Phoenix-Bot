@@ -36,7 +36,7 @@ module.exports = (client) => {
   desc += "\n";
 
   const embed = new EmbedBuilder()
-    .setTitle("<a:shadow_on_top:1235849461771538513> | Shadow™")
+    .setTitle("<a:shadow_on_top:1235849461771538513> | Phoenix™")
     .setColor(EMBED_COLORS.BOT_EMBED)
     .setThumbnail(client.user.displayAvatarURL())
     .setDescription(desc)
@@ -44,9 +44,9 @@ module.exports = (client) => {
       {
         name: "<a:info:1235933806255411320> **Environment Info**",
         value: stripIndent`
-        <:operating_system:1235849745189310576> **OS:** Arch Linux [x64]
+        <:operating_system:1235849745189310576> **OS:** Debain Linux [x64]
         <:cpu:1235849122683031594> **CPU:** Intel® Core™ i9-13900KS CPU@ 5.80GHz 24 vCores
-        <:ram:1235849171274039336> **RAMs:** 62.46 GB  
+        <:ram:1235849171274039336> **RAMs:** 32.46 GB  
         `,
         inline: false,
       },
@@ -56,13 +56,8 @@ module.exports = (client) => {
         inline: false,
       },
       {
-        name: "Node Js version",
-        value: process.versions.node,
-        inline: false,
-      },
-      {
         name: "<a:info:1235933806255411320> **Runtime Info**",
-        value: "<:C_JavaScript:1235938453275938876> Node.js: v18.20.12",
+        value: "<:C_JavaScript:1235938453275938876> Node.js: process.versions.node",
         inline: false,
       },
       {
