@@ -20,7 +20,7 @@ const IDLE_TIMEOUT = 30;
  */
 module.exports = {
   name: "help",
-  description: "command help menu",
+  description: "Feeling Lost? Use this command to get a list of my commands!",
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
   command: {
@@ -116,9 +116,11 @@ async function getHelpMenu({ client, guild }) {
 
   const embed = new EmbedBuilder()
     .setColor(EMBED_COLORS.BOT_EMBED)
-    .setThumbnail(client.user.displayAvatarURL())
+    .setThumbnail(
+      client.user.displayAvatarURL()
+    )
     .setDescription(
-      "**About Me:**\n" +
+      "<:QuestionMark:1235849005578321990> | **About Me:**\n" +
         `Hello I am ${guild.members.me.displayName}!\n` +
         "A cool multipurpose discord bot which can serve all your needs\n\n" +
         `**Invite Me:** [Here](${client.getInvite()})\n` +
@@ -221,7 +223,9 @@ function getSlashCategoryEmbeds(client, category) {
 
     const embed = new EmbedBuilder()
       .setColor(EMBED_COLORS.BOT_EMBED)
-      .setThumbnail(CommandCategory[category]?.image)
+      .setThumbnail(
+        "https://media.discordapp.net/attachments/1090643206217150546/1090643298567344198/help.gif?ex=66359cf9&is=66344b79&hm=968e63ab75a2cedbee621777b94d31cf72e456e94ed2fae1eddf49713bf0d3ec&="
+      )
       .setAuthor({ name: `${category} Commands` })
       .setDescription(collector);
 
@@ -234,7 +238,9 @@ function getSlashCategoryEmbeds(client, category) {
   if (commands.length === 0) {
     const embed = new EmbedBuilder()
       .setColor(EMBED_COLORS.BOT_EMBED)
-      .setThumbnail(CommandCategory[category]?.image)
+      .setThumbnail(
+        "https://media.discordapp.net/attachments/1090643206217150546/1090643298567344198/help.gif?ex=66359cf9&is=66344b79&hm=968e63ab75a2cedbee621777b94d31cf72e456e94ed2fae1eddf49713bf0d3ec&="
+      )
       .setAuthor({ name: `${category} Commands` })
       .setDescription("No commands in this category");
 
@@ -262,7 +268,9 @@ function getSlashCategoryEmbeds(client, category) {
   arrSplitted.forEach((item, index) => {
     const embed = new EmbedBuilder()
       .setColor(EMBED_COLORS.BOT_EMBED)
-      .setThumbnail(CommandCategory[category]?.image)
+      .setThumbnail(
+        "https://media.discordapp.net/attachments/1090643206217150546/1090643298567344198/help.gif?ex=66359cf9&is=66344b79&hm=968e63ab75a2cedbee621777b94d31cf72e456e94ed2fae1eddf49713bf0d3ec&="
+      )
       .setAuthor({ name: `${category} Commands` })
       .setDescription(item.join("\n"))
       .setFooter({ text: `page ${index + 1} of ${arrSplitted.length}` });
@@ -300,7 +308,9 @@ function getMsgCategoryEmbeds(client, category, prefix) {
 
     const embed = new EmbedBuilder()
       .setColor(EMBED_COLORS.BOT_EMBED)
-      .setThumbnail(CommandCategory[category]?.image)
+      .setThumbnail(
+        `https://images-ext-1.discordapp.net/external/mjfzYPL4JM040Mb02QrQyf9807Ym5w9LkArzFbPRcFw/https/img.icons8.com/sf-black-filled/256/DD00FF/image.png?format=webp&quality=lossless`
+      )
       .setAuthor({ name: `${category} Commands` })
       .setDescription(collector);
 
@@ -313,7 +323,9 @@ function getMsgCategoryEmbeds(client, category, prefix) {
   if (commands.length === 0) {
     const embed = new EmbedBuilder()
       .setColor(EMBED_COLORS.BOT_EMBED)
-      .setThumbnail(CommandCategory[category]?.image)
+      .setThumbnail(
+        "https://media.discordapp.net/attachments/1090643206217150546/1090643298567344198/help.gif?ex=66359cf9&is=66344b79&hm=968e63ab75a2cedbee621777b94d31cf72e456e94ed2fae1eddf49713bf0d3ec&="
+      )
       .setAuthor({ name: `${category} Commands` })
       .setDescription("No commands in this category");
 
@@ -332,7 +344,9 @@ function getMsgCategoryEmbeds(client, category, prefix) {
   arrSplitted.forEach((item, index) => {
     const embed = new EmbedBuilder()
       .setColor(EMBED_COLORS.BOT_EMBED)
-      .setThumbnail(CommandCategory[category]?.image)
+      .setThumbnail(
+        "https://media.discordapp.net/attachments/1090643206217150546/1090643298567344198/help.gif?ex=66359cf9&is=66344b79&hm=968e63ab75a2cedbee621777b94d31cf72e456e94ed2fae1eddf49713bf0d3ec&="
+      )
       .setAuthor({ name: `${category} Commands` })
       .setDescription(item.join("\n"))
       .setFooter({

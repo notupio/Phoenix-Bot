@@ -8,7 +8,7 @@ const { stripIndent } = require("common-tags");
  */
 module.exports = {
   name: "github",
-  description: "shows github statistics of a user",
+  description: "<a:info:1235933806255411320> Shows the Github Statistics of an user!",
   cooldown: 10,
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
@@ -23,7 +23,7 @@ module.exports = {
     options: [
       {
         name: "username",
-        description: "github username",
+        description: "<a:info:1235933806255411320> Put a Guthub username!",
         type: ApplicationCommandOptionType.String,
         required: true,
       },

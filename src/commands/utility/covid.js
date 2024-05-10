@@ -8,7 +8,7 @@ const timestampToDate = require("timestamp-to-date");
  */
 module.exports = {
   name: "covid",
-  description: "get covid statistics for a country",
+  description: "<a:info:1235933806255411320> Get the Covid Statistics for a country!",
   cooldown: 5,
   category: "UTILITY",
   botPermissions: ["EmbedLinks"],
@@ -22,7 +22,7 @@ module.exports = {
     options: [
       {
         name: "country",
-        description: "country name to get covid statistics for",
+        description: "<a:info:1235933806255411320> Put the name of the country here!",
         type: ApplicationCommandOptionType.String,
         required: true,
       },
