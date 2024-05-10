@@ -13,3 +13,4 @@ module.exports = {
         await interaction.followUp("Success: 👾 click here to claim your badge → [meow :3](<https://discord.com/developers/active-developer>)")
     }
 }
+
