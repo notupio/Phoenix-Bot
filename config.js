@@ -35,7 +35,6 @@ module.exports = {
     LOG_EMBED: "#36393F",
     DM_EMBED: "#36393F",
   },
-
   DASHBOARD: {
     enabled: true, // enable or disable dashboard
     baseURL: "http://localhost:8080", // base url
