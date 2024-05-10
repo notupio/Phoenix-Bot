@@ -1,3 +1,4 @@
+
 module.exports = {
   OWNER_IDS: ["1085081038952337508"], // Bot owner ID's
   SUPPORT_SERVER: "https://discord.gg/a63jNQ4yp3", // Your bot support server
