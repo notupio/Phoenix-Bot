@@ -211,22 +211,3 @@ async function play({ member, guild, channel }, query) {
 
   return { embeds: [embed], files: [musicCardBuffer] };
 }
-
-const musicard = await Classic({
-  thumbnailImage: thumbnail,
-  backgroundColor: "#070707",
-  progress: (position / duration) * 100,
-  progressColor: "#79F0FF",
-  progressBarColor: "#696969",
-  name: track.title,
-  nameColor: "#79F0FF",
-  author: `By ${track.author}`,
-  authorColor: "#696969",
-  startTime: new Date(position).toISOString().slice(11, 19),
-  endTime: duration > 6.048e8 ? "🔴 LIVE" : prettyMs(duration, { colonNotation: true }),
-  timeColor: "#696969",
-});
-
-const attachment = new AttachmentBuilder(musicard, { name: "uwu.png" });
-
-return attachment;

@@ -34,12 +34,11 @@ module.exports = {
     LOG_EMBED: "#36393F",
     DM_EMBED: "#36393F",
   },
-
   DASHBOARD: {
-    enabled: false, // enable or disable dashboard
-    baseURL: "http://localhost:8080", // base url
-    failureURL: "http://localhost:8080", // failure redirect url
-    port: "8080", // port to run the bot on
+    enabled: true, // enable or disable dashboard
+    baseURL: "http://localhost:443", // base url
+    failureURL: "https://discord.com/app", // failure redirect url
+    port: "443", // port to run the bot on
   },
 
   ECONOMY: {
