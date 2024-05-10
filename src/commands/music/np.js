@@ -1,7 +1,7 @@
 const { EMBED_COLORS } = require("@root/config");
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, AttachmentBuilder } = require("discord.js");
 const prettyMs = require("pretty-ms");
-const { splitBar } = require("string-progressbar");
+const { Classic } = require("musicard");
 
 /**
  * @type {import("@structures/Command")}
@@ -20,52 +20,55 @@ module.exports = {
   },
 
   async messageRun(message, args) {
-    const response = nowPlaying(message);
+    const response = await nowPlaying(message);
     await message.safeReply(response);
   },
 
   async interactionRun(interaction) {
-    const response = nowPlaying(interaction);
+    const response = await nowPlaying(interaction);
     await interaction.followUp(response);
   },
 };
 
-/**
- * @param {import("discord.js").CommandInteraction|import("discord.js").Message} arg0
- */
-function nowPlaying({ client, guildId }) {
+async function nowPlaying({ client, guildId, author }) {
   const player = client.musicManager.getPlayer(guildId);
-  if (!player || !player.queue.current) return "🚫 No music is being played!";
+  if (!player || !player.queue.current) return "No music is being played!";
 
   const track = player.queue.current;
-  const end = track.length > 6.048e8 ? "🔴 LIVE" : new Date(track.length).toISOString().slice(11, 19);
+  const end = track.length > 6.048e8 ? "🔴 LIVE" : prettyMs(track.length, { colonNotation: true });
+
+  const musicCardBuffer = await generateMusicCard(track, player.position, track.length, client);
 
   const embed = new EmbedBuilder()
-    .setColor(EMBED_COLORS.BOT_EMBED)
+    .setColor(EMBED_COLORS.TRANSPARENT)
     .setAuthor({ name: "Now playing" })
-    .setDescription(`[${track.title}](${track.uri})`)
-    .addFields(
-      {
-        name: "Song Duration",
-        value: "`" + prettyMs(track.length, { colonNotation: true }) + "`",
-        inline: true,
-      },
-      {
-        name: "Requested By",
-        value: track.requester || "Unknown",
-        inline: true,
-      },
-      {
-        name: "\u200b",
-        value:
-          new Date(player.position).toISOString().slice(11, 19) +
-          " [" +
-          splitBar(track.length > 6.048e8 ? player.position : track.length, player.position, 15)[0] +
-          "] " +
-          end,
-        inline: false,
-      }
-    );
 
-  return { embeds: [embed] };
+  return { embeds: [embed], files: [musicCardBuffer] };
+}
+
+async function generateMusicCard(track, position, duration, client) {
+  const identifier = track.identifier;
+
+  const thumbnail = track.sourceName === "youtube"
+    ? `https://img.youtube.com/vi/${identifier}/hqdefault.jpg`
+    : client.user.displayAvatarURL({ format: "png", dynamic: true, size: 1024 });
+
+  const musicard = await Classic({
+    thumbnailImage: thumbnail,
+    backgroundColor: "#070707",
+    progress: (position / duration) * 100,
+    progressColor: "#79F0FF",
+    progressBarColor: "#696969",
+    name: track.title,
+    nameColor: "#79F0FF",
+    author: `By ${track.author}`,
+    authorColor: "#696969",
+    startTime: new Date(position).toISOString().slice(11, 19),
+    endTime: duration > 6.048e8 ? "🔴 LIVE" : prettyMs(duration, { colonNotation: true }),
+    timeColor: "#696969",
+  });
+
+  const attachment = new AttachmentBuilder(musicard);
+
+  return attachment;
 }

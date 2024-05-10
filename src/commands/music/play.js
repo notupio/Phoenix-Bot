@@ -1,7 +1,8 @@
-const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js");
+const { EmbedBuilder, ApplicationCommandOptionType, AttachmentBuilder } = require("discord.js");
 const prettyMs = require("pretty-ms");
 const { EMBED_COLORS, MUSIC } = require("@root/config");
 const { SpotifyItemType } = require("@lavaclient/spotify");
+const { Classic } = require("musicard");
 
 const search_prefix = {
   YT: "ytsearch",
@@ -67,6 +68,8 @@ async function play({ member, guild, channel }, query) {
   let embed = new EmbedBuilder().setColor(EMBED_COLORS.BOT_EMBED);
   let tracks;
   let description = "";
+
+  const musicCardBuffer = await generateMusicCard(track, player.position, track.length, client);
 
   try {
     if (guild.client.musicManager.spotify.isSpotifyUrl(query)) {
@@ -206,5 +209,24 @@ async function play({ member, guild, channel }, query) {
     await player.queue.start();
   }
 
-  return { embeds: [embed] };
+  return { embeds: [embed], files: [musicCardBuffer] };
 }
+
+const musicard = await Classic({
+  thumbnailImage: thumbnail,
+  backgroundColor: "#070707",
+  progress: (position / duration) * 100,
+  progressColor: "#79F0FF",
+  progressBarColor: "#696969",
+  name: track.title,
+  nameColor: "#79F0FF",
+  author: `By ${track.author}`,
+  authorColor: "#696969",
+  startTime: new Date(position).toISOString().slice(11, 19),
+  endTime: duration > 6.048e8 ? "🔴 LIVE" : prettyMs(duration, { colonNotation: true }),
+  timeColor: "#696969",
+});
+
+const attachment = new AttachmentBuilder(musicard, { name: "uwu.png" });
+
+return attachment;
