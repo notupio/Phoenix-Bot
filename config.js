@@ -1,4 +1,3 @@
-
 module.exports = {
   OWNER_IDS: ["1085081038952337508"], // Bot owner ID's
   SUPPORT_SERVER: "https://discord.gg/a63jNQ4yp3", // Your bot support server
@@ -35,8 +34,9 @@ module.exports = {
     LOG_EMBED: "#36393F",
     DM_EMBED: "#36393F",
   },
+
   DASHBOARD: {
-    enabled: true, // enable or disable dashboard
+    enabled: false, // enable or disable dashboard
     baseURL: "http://localhost:8080", // base url
     failureURL: "http://localhost:8080", // failure redirect url
     port: "8080", // port to run the bot on
@@ -44,7 +44,7 @@ module.exports = {
 
   ECONOMY: {
     ENABLED: true,
-    CURRENCY: "₪",
+    CURRENCY: "ඞ",
     DAILY_COINS: 100, // coins to be received by daily command
     MIN_BEG_AMOUNT: 100, // minimum coins to be received when beg command is used
     MAX_BEG_AMOUNT: 2500, // maximum coins to be received when beg command is used
