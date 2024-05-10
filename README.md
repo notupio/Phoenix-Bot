@@ -3,6 +3,7 @@
   <a href="https://github.com/saiteja-madha"><img src="./docs/.gitbook/assets/strange.png" height="200" alt="Discord.js v14 Bot"></a>
   <br>
   Discord.js v14 Bot
+  
   <br>
 </h1>
 
